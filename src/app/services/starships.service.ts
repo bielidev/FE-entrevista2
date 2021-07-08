@@ -14,4 +14,8 @@ export class StarshipsService {
   getStarships(): Observable<any> {
     return this.httpClient.get("https://swapi.dev/api/starships")
   }
+
+  getDetail(url): Observable<any> {
+    return this.httpClient.get(url)
+  }
 }

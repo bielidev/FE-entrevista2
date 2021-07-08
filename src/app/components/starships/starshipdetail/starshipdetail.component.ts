@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { StarshipsService } from 'src/app/services/starships.service';
 
 @Component({
   selector: 'app-starshipdetail',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StarshipdetailComponent implements OnInit {
 
-  constructor() { }
+  starship: any
+
+  constructor(private route: ActivatedRoute, private starshipsService: StarshipsService) { }
 
   ngOnInit(): void {
+    this.starshipsService.getDetail(this.route.snapshot.params.id).subscribe(res => {
+      this.starship = res
+    })
   }
 
 }
