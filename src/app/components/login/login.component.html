@@ -2,14 +2,17 @@
     <div class="row  justify-content-center">
         <h1>Iniciar sesión</h1>
         <br>
-        <form class="col-4">
+        <form class="col-4" (ngSubmit)="login()">
             <div class="mb-3">
-                <input type="text" class="form-control" id="username" placeholder="Nombre de usuario">
+                <input type="text" [(ngModel)]="username" name="username" class="form-control" id="username" placeholder="Nombre de usuario">
             </div>
             <div class="mb-3">
-                <input type="password" class="form-control" id="pasword" placeholder="Contraseña">
+                <input type="password" [(ngModel)]="password" name="password" class="form-control" id="pasword" placeholder="Contraseña">
             </div>
-            <button type="submit" class="btn btn-outline-success">Entrar</button>
+            <div class="alert alert-danger" *ngIf="error">
+                <p class="mb-0">Datos de formulario incorrectos.</p>
+            </div>
+            <button class="btn btn-outline-success">Entrar</button>
         </form>
     </div>
 </div>

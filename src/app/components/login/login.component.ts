@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { Router } from "@angular/router";
+import { AuthService } from "src/app/services/auth.service";
 
 @Component({
   selector: "app-login",
@@ -6,15 +8,20 @@ import { Component } from "@angular/core";
   styleUrls: ["./login.component.css"]
 })
 export class LoginComponent {
-  email: string;
+  username: string;
   password: string;
+  error: boolean = false;
 
-  constructor() {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   login() {
-    console.log(this.email);
-    console.log(this.password);
-
-}
+   if (this.username && this.password) {
+     this.authService.setUserlogedIn(true)
+     this.router.navigate([''])
+    this.error = false;
+   } else {
+     this.error = true;
+   }
+  }
 
 }
