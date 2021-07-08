@@ -11,6 +11,7 @@ import { StarshipdetailComponent } from './components/starships/starshipdetail/s
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { routing } from "./app.routes";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { routing } from "./app.routes";
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     routing
   ],
   providers: [],
