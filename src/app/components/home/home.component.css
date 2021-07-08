@@ -1,0 +1,6 @@
+.home {
+    height: 94%;
+    width: 100%;
+    background: url(/assets/img/home.jpg);
+    background-size: contain;
+}
